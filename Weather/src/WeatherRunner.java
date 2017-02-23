@@ -1,0 +1,17 @@
+import java.io.*;
+import java.util.*;
+
+public class WeatherRunner {
+	public static void main(String[] args) throws FileNotFoundException{
+		Scanner input=new Scanner(new File("./resources/weatherData"));
+	double previous=input.nextDouble();
+	double current;
+	while(input.hasNext()){
+		current=input.nextDouble();
+		double difference=current-previous;
+		System.out.println(previous + " to " + current + ", change = " + difference);
+		previous=current;
+	}
+	
+	}
+}
