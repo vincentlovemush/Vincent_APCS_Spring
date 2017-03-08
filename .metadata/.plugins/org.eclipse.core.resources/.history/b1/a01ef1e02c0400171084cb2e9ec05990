@@ -1,0 +1,22 @@
+package textExcel;
+
+public class TextCell implements Cell {
+	private String content;
+	public TextCell (String word){
+		content=word;
+	}
+	public String abbreviatedCellText() {
+		// TODO Auto-generated method stub
+		if (content.length()>10){
+			return content.substring(0,10);
+		}
+		int spaces=10-content.length();
+		for (int i=0;i<spaces;i++)
+			content=content+" ";
+		return content;
+	}
+	public String fullCellText() {
+		return content;
+	}
+
+}
