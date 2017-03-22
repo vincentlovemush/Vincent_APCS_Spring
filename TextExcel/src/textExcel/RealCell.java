@@ -6,15 +6,9 @@ public class RealCell implements Cell {
 		value=number;
 	}
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
 		String newContent = value;
-		if (value.length()>10){
-			return value.substring(0,10);
-		}
-		int spaces=10-value.length();
-		for (int i=0;i<spaces;i++)
-			newContent=newContent+" ";
-		return newContent;
+		newContent=newContent+"          ";
+		return newContent.substring(0, 10);
 	}
 	public String fullCellText() {
 		return value;

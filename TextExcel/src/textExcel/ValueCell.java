@@ -6,14 +6,8 @@ public class ValueCell extends RealCell{
 	}
 	public String abbreviatedCellText() {
 		double numbers = Double.parseDouble(value);
-		String newContent= numbers+ "";
-		if (newContent.length()>10){
+		String newContent= numbers+ "          ";
 			return newContent.substring(0,10);
-		}
-		int spaces=10-newContent.length();
-		for (int i=0;i<spaces;i++)
-			newContent=newContent+" ";
-		return newContent;
 	}
 
 }
