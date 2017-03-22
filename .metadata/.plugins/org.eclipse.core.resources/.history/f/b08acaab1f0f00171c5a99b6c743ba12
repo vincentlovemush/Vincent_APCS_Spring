@@ -134,7 +134,7 @@ public class Spreadsheet implements Grid
 				else if(excel[i][j] instanceof PercentCell)
 					outputFile.println(letter+""+(i+1)+","+"PercentCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof FormulaCell)
-					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+"("+excel[i][j].fullCellText()+")");
+					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof TextCell)
 					outputFile.println(letter+""+(i+1)+","+"TextCell"+","+excel[i][j].fullCellText());
 			}
@@ -160,7 +160,7 @@ public class Spreadsheet implements Grid
 			else if(cellType.equals("PercentCell"))
 				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new PercentCell(Double.parseDouble(cellValue)*100+"%");
 			else if(cellType.equals("FormulaCell"))
-				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new FormulaCell(cellValue);
+				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new FormulaCell("("+cellValue+")");
 			else if(cellType.equals("TextCell"))
 				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new TextCell(cellValue.substring(1,cellValue.length()-1));
 		}

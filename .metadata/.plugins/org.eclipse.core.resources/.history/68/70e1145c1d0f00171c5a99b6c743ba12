@@ -37,10 +37,10 @@ public class Spreadsheet implements Grid
 		command=command.substring(0,1).toUpperCase()+command.substring(1);
 		//saving
 		if(command.startsWith("Save")&&command.endsWith(".csv"))
-			return writingToFile(command.substring(command.indexOf(' ')+1));
+			return writingToFile(command.substring(command.indexOf(' ')));
 		//opening
 		if(command.startsWith("Open")&&command.endsWith(".csv"))
-			return readingFromFile(command.substring(command.indexOf(' ')+1));
+			return readingFromFile(command.substring(command.indexOf(' ')));
 
 		if (command.charAt(0)>64&&command.charAt(0)<91){
 			//inspection
@@ -134,7 +134,7 @@ public class Spreadsheet implements Grid
 				else if(excel[i][j] instanceof PercentCell)
 					outputFile.println(letter+""+(i+1)+","+"PercentCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof FormulaCell)
-					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+"("+excel[i][j].fullCellText()+")");
+					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof TextCell)
 					outputFile.println(letter+""+(i+1)+","+"TextCell"+","+excel[i][j].fullCellText());
 			}
@@ -148,7 +148,7 @@ public class Spreadsheet implements Grid
 			inputFile = new Scanner(new File(filename));
 		}
 		catch (FileNotFoundException e) {
-			return "File not found: " + filename;
+			return "Unable to open "+filename+": " + e.getMessage();
 		}
 		while(inputFile.hasNextLine()){
 			String data=inputFile.nextLine();
@@ -160,7 +160,7 @@ public class Spreadsheet implements Grid
 			else if(cellType.equals("PercentCell"))
 				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new PercentCell(Double.parseDouble(cellValue)*100+"%");
 			else if(cellType.equals("FormulaCell"))
-				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new FormulaCell(cellValue);
+				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new FormulaCell("("+cellValue+")");
 			else if(cellType.equals("TextCell"))
 				excel[Integer.parseInt(cellIdentifier.substring(1))-1][cellIdentifier.charAt(0)-65]= new TextCell(cellValue.substring(1,cellValue.length()-1));
 		}

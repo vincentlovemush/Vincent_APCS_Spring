@@ -134,7 +134,7 @@ public class Spreadsheet implements Grid
 				else if(excel[i][j] instanceof PercentCell)
 					outputFile.println(letter+""+(i+1)+","+"PercentCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof FormulaCell)
-					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+"("+excel[i][j].fullCellText()+")");
+					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof TextCell)
 					outputFile.println(letter+""+(i+1)+","+"TextCell"+","+excel[i][j].fullCellText());
 			}
