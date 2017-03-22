@@ -1,5 +1,10 @@
 package textExcel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
 // Update this file with your own code.
 
 public class Spreadsheet implements Grid
@@ -29,6 +34,13 @@ public String processCommand(String command)
 		return this.getGridText();
 	}
 	command=command.substring(0,1).toUpperCase()+command.substring(1);
+	//saving
+	if(command.startsWith("Save")&&command.endsWith(".csv"))
+		return writingToFile(command.substring(command.indexOf(' ')));
+	//opening
+	if(command.startsWith("Open")&&command.endsWith(".csv"))
+		return readingFromFile(command.substring(command.indexOf(' ')));
+	
 	if (command.charAt(0)>64&&command.charAt(0)<91){
 		//inspection
 		if(command.indexOf('=')==-1){
@@ -108,6 +120,56 @@ public String getGridText()
 	}
 
 	return grid;
+}
+private String writingToFile (String filename){ 
+	PrintStream outputFile;
+	try {
+		outputFile = new PrintStream(new File(filename));
+	}
+	catch (FileNotFoundException e) {
+		return "File not found: " + filename;
+	}
+	for (int i=0;i<excel.length;i++){
+		for (int j=0;j<excel[i].length;j++){
+			char letter= (char) (j + 65);
+			if(excel[i][j] instanceof ValueCell)
+				outputFile.println(letter+""+(i+1)+","+"ValueCell"+","+excel[i][j].fullCellText());
+			else if(excel[i][j] instanceof PercentCell)
+				outputFile.println(letter+""+(i+1)+","+"PercentCell"+","+excel[i][j].fullCellText());
+			else if(excel[i][j] instanceof FormulaCell)
+				outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+excel[i][j].fullCellText());
+			else if(excel[i][j] instanceof TextCell)
+				outputFile.println(letter+""+(i+1)+","+"TextCell"+","+excel[i][j].fullCellText());
+		}
+	}
+	outputFile.close();
+	return "saved";
+}
+private String readingFromFile(String filename){
+	Scanner inputFile;
+	try {
+		inputFile = new Scanner(new File(filename));
+	}
+	catch (FileNotFoundException e) {
+		return "File not found: " + filename;
+	}
+	while(inputFile.hasNextLine()){
+		String data=inputFile.nextLine();
+		String cellIdentifier=data.substring(0,data.indexOf(','));
+		String cellType=data.substring(data.indexOf(','),data.lastIndexOf(','));
+		String cellValue=data.substring(data.lastIndexOf(','));
+		if(cellType.equals("ValueCell"))
+			excel[Integer.parseInt(cellIdentifier.substring(1))][cellIdentifier.charAt(0)-65]= new ValueCell(cellValue);
+		else if(cellType.equals("PercentCell"))
+			excel[Integer.parseInt(cellIdentifier.substring(1))][cellIdentifier.charAt(0)-65]= new PercentCell(Double.parseDouble(cellValue)*100+"%");
+		else if(cellType.equals("FormulaCell"))
+			excel[Integer.parseInt(cellIdentifier.substring(1))][cellIdentifier.charAt(0)-65]= new FormulaCell(cellValue);
+		else if(cellType.equals("TextCell"))
+			excel[Integer.parseInt(cellIdentifier.substring(1))][cellIdentifier.charAt(0)-65]= new TextCell(cellValue);
+	
+	}
+	inputFile.close();
+	return "opened";
 }
 
 }

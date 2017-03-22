@@ -5,12 +5,6 @@ public class ValueCell extends RealCell{
 		super(number);
 	}
 	public String abbreviatedCellText() {
-		/*String newContent = value;
-		if(newContent.indexOf('.')==-1)
-			newContent=newContent+".0";
-		if(newContent.indexOf('.')!=-1)
-		while (newContent.endsWith("00"))
-			newContent=newContent.substring(0,newContent.length()-1);*/
 		double numbers = Double.parseDouble(value);
 		String newContent= numbers+ "";
 		if (newContent.length()>10){
