@@ -97,7 +97,7 @@ public class Spreadsheet implements Grid
 		return 12;
 	}
 
-	public static Cell getCell(Location loc)
+	public Cell getCell(Location loc)
 	{
 		return excel[loc.getRow()][loc.getCol()];
 	}

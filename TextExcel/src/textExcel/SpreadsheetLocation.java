@@ -8,14 +8,11 @@ public class SpreadsheetLocation implements Location
     @Override
     public int getRow()
     {
-        // TODO Auto-generated method stub
         return row;
     }
 
-    @Override
     public int getCol()
     {
-        // TODO Auto-generated method stub
         return col;
     }
     
@@ -23,7 +20,6 @@ public class SpreadsheetLocation implements Location
     {
     	col = (int)(cellName.charAt(0))-65;
         row = Integer.parseInt(cellName.substring(1))-1;
-        // TODO: Fill this out with your own code
     }
 
 }
