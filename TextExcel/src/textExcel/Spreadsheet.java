@@ -60,9 +60,9 @@ public class Spreadsheet implements Grid
 			//assignment of FormulaCell
 			else if(command.indexOf('=')!=-1 && command.indexOf("(")!=-1&&command.indexOf(")")!=-1){
 				if(command.charAt(2)==' ')
-					excel[Integer.parseInt(command.substring(1,2))-1][command.charAt(0)-65]=new FormulaCell(command.substring(command.indexOf('(')+1,command.lastIndexOf(')')));
+					excel[Integer.parseInt(command.substring(1,2))-1][command.charAt(0)-65]=new FormulaCell(command.substring(command.indexOf('('),command.lastIndexOf(')')+1), this);
 				else
-					excel[Integer.parseInt(command.substring(1,3))-1][command.charAt(0)-65]=new FormulaCell(command.substring(command.indexOf('(')+1,command.lastIndexOf(')')));
+					excel[Integer.parseInt(command.substring(1,3))-1][command.charAt(0)-65]=new FormulaCell(command.substring(command.indexOf('('),command.lastIndexOf(')')+1), this);
 				String newSpreadsheet = this.getGridText();
 				return newSpreadsheet;
 			}
@@ -97,7 +97,7 @@ public class Spreadsheet implements Grid
 		return 12;
 	}
 
-	public static Cell getCell(Location loc)
+	public Cell getCell(Location loc)
 	{
 		return excel[loc.getRow()][loc.getCol()];
 	}
@@ -134,7 +134,7 @@ public class Spreadsheet implements Grid
 				else if(excel[i][j] instanceof PercentCell)
 					outputFile.println(letter+""+(i+1)+","+"PercentCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof FormulaCell)
-					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+"("+excel[i][j].fullCellText()+")");
+					outputFile.println(letter+""+(i+1)+","+"FormulaCell"+","+excel[i][j].fullCellText());
 				else if(excel[i][j] instanceof TextCell)
 					outputFile.println(letter+""+(i+1)+","+"TextCell"+","+excel[i][j].fullCellText());
 			}
