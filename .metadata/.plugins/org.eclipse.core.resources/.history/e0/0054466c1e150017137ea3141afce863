@@ -1,0 +1,65 @@
+package textExcel;
+
+public class FormulaCell extends RealCell{
+	private Spreadsheet mySpreadsheet;
+	public FormulaCell(String formula){
+		super(formula);
+	}
+	public FormulaCell(String formula, Spreadsheet excel){
+		this(formula);
+		mySpreadsheet=excel;
+	}
+	public double getDoubleValue (){
+		String [] splitted = value.split(" ");
+		double answer= 0;
+		if (splitted[1].charAt(0)<77&&splitted[1].charAt(0)>64&&splitted[1].charAt(1)!='V'){
+			SpreadsheetLocation cellLoc= new SpreadsheetLocation (splitted[1]);
+			answer= ((RealCell)(mySpreadsheet.getCell(cellLoc))).getDoubleValue();
+		}
+		else
+			answer=(Double.parseDouble(splitted[1]));
+		for (int i=2; i<splitted.length;i=i+2){
+			if(splitted[i].equals("+"))
+				if(splitted[i+1].charAt(0)<77&&splitted[i+1].charAt(0)>65&&splitted[1].charAt(1)!='V'){
+					SpreadsheetLocation cellLoc= new SpreadsheetLocation (splitted[i+1]);
+					answer=answer+((RealCell)(mySpreadsheet.getCell(cellLoc))).getDoubleValue();
+				}
+				else if (splitted[i+1].equals("AVG")){
+				//add everything
+				//i++
+				}	
+				else
+					answer=answer + Double.parseDouble(splitted[i+1]);
+			if(splitted[i].equals("-"))
+				if(splitted[i+1].charAt(0)<77&&splitted[i+1].charAt(0)>65&&splitted[1].charAt(1)!='V'){
+					SpreadsheetLocation cellLoc= new SpreadsheetLocation (splitted[i+1]);
+					answer=answer-((RealCell)(mySpreadsheet.getCell(cellLoc))).getDoubleValue();
+				}
+				else
+					answer=answer - Double.parseDouble(splitted[i+1]);
+			if(splitted[i].equals("*"))
+				if(splitted[i+1].charAt(0)<77&&splitted[i+1].charAt(0)>65&&splitted[1].charAt(1)!='V'){
+					SpreadsheetLocation cellLoc= new SpreadsheetLocation (splitted[i+1]);
+					answer=answer*((RealCell)(mySpreadsheet.getCell(cellLoc))).getDoubleValue();
+				}
+				else
+					answer=answer * Double.parseDouble(splitted[i+1]);
+			if(splitted[i].equals("/"))
+				if(splitted[i+1].charAt(0)<77&&splitted[i+1].charAt(0)>65&&splitted[1].charAt(1)!='V'){
+					SpreadsheetLocation cellLoc= new SpreadsheetLocation (splitted[i+1]);
+					answer=answer/((RealCell)(mySpreadsheet.getCell(cellLoc))).getDoubleValue();
+				}
+				else
+					answer=answer / Double.parseDouble(splitted[i+1]);
+		}
+		return answer;
+		
+	}
+	public String abbreviatedCellText(){
+		String formula=this.getDoubleValue()+"          ";
+		return formula.substring(0,10);
+	}
+	public String fullCellText(){
+		return value;
+	}
+}
