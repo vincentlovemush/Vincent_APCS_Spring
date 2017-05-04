@@ -1,17 +1,20 @@
+import java.awt.Graphics;
 import java.io.*;
 import java.util.*;
 
-public class WeatherRunner {
-	public static void main(String[] args) throws FileNotFoundException{
-		Scanner input=new Scanner(new File("./resources/weatherData"));
-	double previous=input.nextDouble();
-	double current;
-	while(input.hasNext()){
-		current=input.nextDouble();
-		double difference=current-previous;
-		System.out.println(previous + " to " + current + ", change = " + difference);
-		previous=current;
-	}
-	
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class WeatherRunner extends JPanel{
+	public void main(String[] args) {
+		ImageIcon whiteKnight = new ImageIcon(this.getClass().getResource("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/whiteKnight.jpg"));
+		Graphics g = null;
+		JFrame f = new JFrame();
+		f.setSize(450, 450);
+		f.add(new WeatherRunner());
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setVisible(true);
+		whiteKnight.paintIcon(this, g, 0, 0);
 	}
 }
