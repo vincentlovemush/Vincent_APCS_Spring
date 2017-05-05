@@ -4,7 +4,7 @@ public class WhiteKnight implements Chesspiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon wKnight= new ImageIcon("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/knight white.png");
+	private ImageIcon wKnight= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/kniwhite.jpg");
 	public WhiteKnight(){
 		}
 	public boolean validMove(int moveX, int moveY) {

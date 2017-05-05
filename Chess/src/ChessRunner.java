@@ -101,10 +101,12 @@ public class ChessRunner extends JPanel implements MouseListener{
 		System.out.println(mouseX+"  "+mouseY);
 		//get the chesspiece		
 		changing= board [row][col];
+		
 		//delete the chesspiece
 	}
 	public void mouseReleased(MouseEvent e) {
 		paint(getGraphics(), mouseX, mouseY);
+		board[mouseX/50][mouseY/50]= new BlankPiece();
 		/*if ((mouseX%100==0&&mouseY%100==0)||(mouseX%100!=0 && mouseY%100!=0))
 			.setColor(Color.black);
 		else
@@ -112,11 +114,13 @@ public class ChessRunner extends JPanel implements MouseListener{
 		g.fillRect(mouseX/50*50, mouseY/50*50, 50, 50);*/
 		mouseX=e.getX();
 		mouseY=e.getY();
+		
 		int row=mouseX/50;
 		int col=mouseY/50;
 		changing.print().paintIcon(this, getGraphics(), 50*row, 50*col);;
 		System.out.println(mouseX+"  "+mouseY);
 		board[row][col]=changing;
+
 		//check ifValid
 	}
 }

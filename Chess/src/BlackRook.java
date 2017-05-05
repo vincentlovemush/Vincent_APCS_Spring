@@ -4,7 +4,7 @@ public class BlackRook implements Chesspiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon bRook= new ImageIcon("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/rook black.png");
+	private ImageIcon bRook= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/rook black.png");
 	public BlackRook(){
 		}
 	public boolean validMove(int moveX, int moveY) {
