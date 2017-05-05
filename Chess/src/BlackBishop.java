@@ -4,7 +4,7 @@ public class BlackBishop implements Chesspiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon bBishop= new ImageIcon("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/blackKnight.png");
+	private ImageIcon bBishop= new ImageIcon("C:/Users/Vincent/Desktop/Vincent_APCS_Spring/Chess/bishop black.png");
 	public BlackBishop(){
 		}
 	public boolean validMove(int moveX, int moveY) {
