@@ -9,7 +9,7 @@ public class BlackBishop implements Chesspiece {
 		}
 	public boolean validMove(int moveX, int moveY) {
 	
-		return false;
+		return true;
 	}
 	public boolean isWhite(){
 		return false;

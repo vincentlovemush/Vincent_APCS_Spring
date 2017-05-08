@@ -4,12 +4,12 @@ public class WhitePawn implements Chesspiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon wPawn= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/whitepaawn.png");
+	private ImageIcon wPawn= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/images.png");
 	public WhitePawn(){
 		}
 	public boolean validMove(int moveX, int moveY) {
 	
-		return false;
+		return true;
 	}
 	public boolean isWhite(){
 		return true;

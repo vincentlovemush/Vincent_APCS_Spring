@@ -4,12 +4,12 @@ public class WhiteKing implements Chesspiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon wKing= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/king white.png");
+	private ImageIcon wKing= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/white king.png");
 	public WhiteKing(){
 		}
 	public boolean validMove(int moveX, int moveY) {
 	
-		return false;
+		return true;
 	}
 	public boolean isWhite(){
 		return true;
