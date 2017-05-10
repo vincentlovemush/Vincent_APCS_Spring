@@ -1,0 +1,25 @@
+import javax.swing.ImageIcon;
+
+public class WhiteKnight implements WhitePiece {
+	private int x;
+	private int y;
+	private boolean isWhite; 
+	private ImageIcon wKnight= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/knight white.jpg");
+	public WhiteKnight(){
+		}
+	public boolean validMove(int moveX, int moveY) {
+		int x2=Math.abs(moveX);
+		int y2=Math.abs(moveY);
+		if((x2-x>2||y2-y>2)||x2-x+y2-y!=3){
+			System.out.println("not a valid move");
+			return false;
+		}
+		return true;
+	}
+	public boolean isWhite(){
+		return true;
+	}
+	public ImageIcon print(){
+		return wKnight;
+	}
+}

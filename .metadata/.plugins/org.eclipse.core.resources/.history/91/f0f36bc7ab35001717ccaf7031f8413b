@@ -1,0 +1,27 @@
+import javax.swing.ImageIcon;
+
+public class BlackQueen implements Chesspiece {
+	private int x;
+	private int y;
+	private boolean isWhite;
+	private Chesspiece [][] board;
+	private ImageIcon bQueen= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/queen black.png");
+	public BlackQueen(Chesspiece[][] a){
+		board= new Chesspiece[8][8];
+		board = a;
+		}
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
+		return true;
+	}
+	public boolean isWhite(){
+		return false;
+	}
+	public ImageIcon print(){
+		return bQueen;
+	}
+	@Override
+	public void moved() {
+		// TODO Auto-generated method stub
+		
+	}
+}

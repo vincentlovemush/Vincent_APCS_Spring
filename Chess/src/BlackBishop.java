@@ -1,13 +1,14 @@
 import javax.swing.ImageIcon;
 
-public class BlackBishop implements Chesspiece {
+public class BlackBishop extends BlackPiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
 	private ImageIcon bBishop= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/bishop black.png");
-	public BlackBishop(){
+	public BlackBishop(Chesspiece [][] a){
+		super(a);
 		}
-	public boolean validMove(int moveX, int moveY) {
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {
 	
 		return true;
 	}
@@ -16,5 +17,13 @@ public class BlackBishop implements Chesspiece {
 	}
 	public ImageIcon print(){
 		return bBishop;
+	}
+	public boolean hasMoved(){
+		return false;
+	}
+	@Override
+	public void moved() {
+		// TODO Auto-generated method stub
+		
 	}
 }

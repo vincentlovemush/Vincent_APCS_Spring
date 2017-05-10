@@ -1,0 +1,4 @@
+
+public interface WhitePiece extends Chesspiece {
+
+}

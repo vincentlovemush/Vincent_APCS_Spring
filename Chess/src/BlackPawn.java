@@ -1,14 +1,15 @@
 import javax.swing.ImageIcon;
 
-public class BlackPawn implements Chesspiece {
+public class BlackPawn extends BlackPiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
+	private boolean hasMoved;
 	private ImageIcon bPawn= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/blackk pawn.png");
-	public BlackPawn(){
+	public BlackPawn(Chesspiece[][]a){
+		super(a);
 		}
-	public boolean validMove(int moveX, int moveY) {
-	
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
 		return true;
 	}
 	public boolean isWhite(){
@@ -16,5 +17,11 @@ public class BlackPawn implements Chesspiece {
 	}
 	public ImageIcon print(){
 		return bPawn;
+	}
+	@Override
+	public void moved() {
+		hasMoved = false;
+		// TODO Auto-generated method stub
+		
 	}
 }

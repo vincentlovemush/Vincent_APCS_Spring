@@ -1,0 +1,7 @@
+
+public interface WhitePiece extends Chesspiece {
+	Chesspiece [][] board;
+	public WhitePiece(Chesspiece [][] a){
+		board = a;
+	}
+}

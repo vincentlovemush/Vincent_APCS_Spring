@@ -1,14 +1,20 @@
 import javax.swing.ImageIcon;
 
-public class WhiteKnight implements Chesspiece {
-	private int x;
-	private int y;
+public class WhiteKnight extends WhitePiece {
 	private boolean isWhite; 
 	private ImageIcon wKnight= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/knight white.jpg");
-	public WhiteKnight(){
+	public WhiteKnight(Chesspiece [][] a){
+		super(a);
 		}
-	public boolean validMove(int moveX, int moveY) {
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {
 	
+		int x2=Math.abs(moveX-prevX);
+		int y2=Math.abs(moveY-prevY);
+		System.out.println(x2 +" "+y2);
+		if((x2>2||y2>2)||x2+y2!=3){
+			System.out.println("not a valid move");
+			return false;
+		}
 		return true;
 	}
 	public boolean isWhite(){
@@ -16,5 +22,10 @@ public class WhiteKnight implements Chesspiece {
 	}
 	public ImageIcon print(){
 		return wKnight;
+	}
+	@Override
+	public void moved() {
+		// TODO Auto-generated method stub
+		
 	}
 }

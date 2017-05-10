@@ -5,7 +5,7 @@ public class BlankPiece implements Chesspiece {
 		
 	}
 	@Override
-	public boolean validMove(int a, int b) {
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -17,5 +17,10 @@ public class BlankPiece implements Chesspiece {
 	}
 	public ImageIcon print(){
 		return null;
+	}
+	@Override
+	public void moved() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,0 +1,23 @@
+import javax.swing.ImageIcon;
+
+public class WhitePawn implements WhitePiece {
+	private int x;
+	private int y;
+	private boolean isWhite; 
+	public boolean hasMoved=true;
+	private ImageIcon wPawn= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/images.png");
+	public WhitePawn(){
+		}
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
+		return true;
+	}
+	public boolean isWhite(){
+		return true;
+	}
+	public ImageIcon print(){
+		return wPawn;
+	}
+	public void moved(){
+		hasMoved=false;
+	}
+}

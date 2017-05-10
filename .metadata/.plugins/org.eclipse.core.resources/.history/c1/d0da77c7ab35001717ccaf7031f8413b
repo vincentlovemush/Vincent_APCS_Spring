@@ -1,0 +1,27 @@
+import javax.swing.ImageIcon;
+
+public class WhiteQueen implements WhitePiece {
+	private int x;
+	private int y;
+	private boolean isWhite;
+	private Chesspiece[][] board;
+	private ImageIcon wQueen= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/queen white.png");
+	public WhiteQueen(Chesspiece[][] a){
+		board= new Chesspiece[8][8];
+		board = a;
+		}
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
+		return true;
+	}
+	public boolean isWhite(){
+		return true;
+	}
+	public ImageIcon print(){
+		return wQueen;
+	}
+	@Override
+	public void moved() {
+		// TODO Auto-generated method stub
+		
+	}
+}
