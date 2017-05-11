@@ -10,7 +10,17 @@ public class BlackPawn extends BlackPiece {
 		super(a);
 		}
 	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
-		return true;
+		int x2=Math.abs(moveX-prevX);
+		System.out.println(x2 +" "+ (moveY-prevY));
+		if(moveY-prevY==1&& x2==0&& !(board[moveX][moveY] instanceof WhitePiece))
+			return true;
+		if(x2==0 && moveY-prevY==2&&!hasMoved &&!(board[moveX][moveY] instanceof WhitePiece)&&!(board[moveX][moveY-1] instanceof WhitePiece))
+			return true;
+		if (x2==1 && moveY-prevY==1 && (board[moveX][moveY] instanceof WhitePiece)){
+			System.out.println(x2+" "+ (prevY-moveY)+" "+ board[moveX][moveY].toString());
+			return true;
+		}
+		return false;
 	}
 	public boolean isWhite(){
 		return false;

@@ -8,7 +8,30 @@ public class WhiteBishop extends WhitePiece{
 	public WhiteBishop(Chesspiece [][] a){
 		super(a);
 		}
-	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
+	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {
+		int x2=moveX-prevX;
+		int y2=moveY-prevY;
+		if(Math.abs(x2)!=Math.abs(y2)){
+			System.out.println(Math.abs(x2)+" "+ Math.abs(y2));
+			return false;
+		}
+		if(prevX>moveX&&prevY>moveY)
+		for(int i=prevX+1;i>moveX;i--)
+			if(board[i][i] instanceof BlackPiece ||board[i][i] instanceof WhitePiece)
+				return false;
+		if(x2<0&&y2>0)
+			for(int i=1;i<Math.abs(x2)-1;i++)
+				if(board[moveX+i][moveY-i] instanceof BlackPiece ||board[moveX-i][moveY+i] instanceof WhitePiece)
+					return false;
+		if(x2>0&&y2<0)
+			for(int i=1;i<Math.abs(x2)-1;i++)
+				if(board[moveX-i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY-i] instanceof WhitePiece)
+					return false;
+		if(x2<0&&y2<0)
+			for(int i=1;i<Math.abs(x2)-1;i++)
+				if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX-i][moveY-i] instanceof WhitePiece)
+					return false;
+				
 		return true;
 	}
 	public boolean isWhite(){

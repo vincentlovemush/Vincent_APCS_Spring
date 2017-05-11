@@ -1,5 +1,0 @@
-
-public interface Chesspiece {
-	public boolean validMove();
-	public void move();
-}

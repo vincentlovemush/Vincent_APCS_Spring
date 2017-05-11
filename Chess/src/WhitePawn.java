@@ -12,13 +12,14 @@ public class WhitePawn extends WhitePiece {
 	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
 		int x2=Math.abs(moveX-prevX);
 		System.out.println(x2 +" "+ (prevY-moveY));
-		if(prevY-moveY==1&& x2==0)
+		if(prevY-moveY==1&& x2==0&&!(board[moveX][moveY] instanceof BlackPiece))
 			return true;
-		if(prevY-moveY==2&&!hasMoved)
+		if(x2==0 && prevY-moveY==2&&!hasMoved &&!(board[moveX][moveY] instanceof BlackPiece)&&!(board[moveX][moveY-1] instanceof BlackPiece))
 			return true;
-/*		if (x2==1 && prevY-moveY==1 && !(board[moveX/50][moveY/50] instanceof WhitePiece)){
+		if (x2==1 && prevY-moveY==1 && (board[moveX][moveY] instanceof BlackPiece)){
+			System.out.println(x2+" "+ (prevY-moveY)+" "+ board[moveX][moveY].toString());
 			return true;
-		}*/
+		}
 		return false;
 	}
 	public boolean isWhite(){
