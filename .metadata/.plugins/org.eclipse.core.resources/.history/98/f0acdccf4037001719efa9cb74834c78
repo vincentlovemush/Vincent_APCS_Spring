@@ -114,29 +114,19 @@ public class ChessRunner extends JPanel implements MouseListener{
 	}
 	public void mouseReleased(MouseEvent e) {
 		if((whiteTurn&&changing instanceof WhitePiece)||(!whiteTurn&&!(changing instanceof WhitePiece))){//whose turn
-			if(changing.validMove(e.getX()/50, e.getY()/50, mouseX/50, mouseY/50)){ //is it valid 
-				if(changing instanceof WhitePiece && !(board[e.getX()/50][e.getY()/50] instanceof WhitePiece)
-				|| !(changing instanceof WhitePiece) && ((board[e.getX()/50][e.getY()/50] instanceof WhitePiece) ||(board[e.getX()/50][e.getY()/50] instanceof BlankPiece))){
-				//if king is not checked after movement
+			if(changing.validMove(e.getX()/50, e.getY()/50, mouseX/50, mouseY/50)){ //is it valid
+				System.out.println(e.getX()/50 + " " +  e.getY()/50 + " " + mouseX/50 + " " + mouseY/50);
+						if(changing instanceof WhitePiece && !(board[e.getX()/50][e.getY()/50] instanceof WhitePiece)
+									|| !(changing instanceof WhitePiece) && ((board[e.getX()/50][e.getY()/50] instanceof WhitePiece) ||(board[e.getX()/50][e.getY()/50] instanceof BlankPiece))){
 				paint(getGraphics(), mouseX, mouseY);
 				board[mouseX/50][mouseY/50]= new BlankPiece();
 				mouseX=e.getX();
 				mouseY=e.getY();
-				//checking if any other piece has a validMove on the king after the king has moved
-				/*if (changing instanceof WhiteKing || changing instanceof BlackKing){
-					for (int i = 0; i < 7; i ++){
-						for (int j = 0; j < 7; j++){
-							if (board[i][j].validMove(e.getX()/50, e.getY()/50,i,j)){
-								
-							}
-						}
-					}
-					
-				}*/
+				//check king is checked
 				int row=mouseX/50;
 				int col=mouseY/50;
 				changing.print().paintIcon(this, getGraphics(), 50*row, 50*col);;
-				System.out.println(mouseX+"  "+mouseY);
+				//System.out.println(mouseX+"  "+mouseY);
 				board[row][col]=changing;
 				if(changing instanceof WhitePawn)
 					changing.moved();

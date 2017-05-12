@@ -1,9 +1,10 @@
 import javax.swing.ImageIcon;
 
 public class WhiteKing extends WhitePiece {
-	private int x;
-	private int y;
+	private int x = 4;
+	private int y = 7;
 	private boolean isWhite; 
+	private boolean hasMoved = false;
 	private ImageIcon wKing= new ImageIcon("./data/white king.png");
 	public WhiteKing(Chesspiece [][] a){
 		super(a);
@@ -28,11 +29,13 @@ public class WhiteKing extends WhitePiece {
 	public ImageIcon print(){
 		return wKing;
 	}
+	//checks if king is checked before movement
 	public boolean isChecked(){
 		return false;
 	}
 	@Override
 	public void moved() {
+		hasMoved = true;
 		// TODO Auto-generated method stub
 		
 	}
