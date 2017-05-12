@@ -16,29 +16,21 @@ public class WhiteBishop extends WhitePiece{
 			return false;
 		}
 		if(prevX>moveX&&prevY>moveY)
-			for(int i=1;i<Math.abs(x2);i++)
-				if(board[prevX-i][prevY-i] instanceof BlackPiece ||board[prevX-i][prevY-i] instanceof WhitePiece){
-					System.out.println("a");
+			for(int i=1;i<Math.abs(x2);i--)
+				if(board[prevX-i][prevY-i] instanceof BlackPiece ||board[prevX-i][prevY-i] instanceof WhitePiece)
 					return false;
-				}
 		if(prevX>moveX&&prevY<moveY)
 			for(int i=1;i<Math.abs(x2);i++)
-				if(board[prevX-i][prevY+i] instanceof BlackPiece ||board[prevX-i][prevY+i] instanceof WhitePiece){
-					System.out.println("b");
+				if(board[prevX-i][prevY+i] instanceof BlackPiece ||board[prevX-i][prevY+i] instanceof WhitePiece)
 					return false;
-				}
 		if(prevX<moveX&&prevY>moveY)
 			for(int i=1;i<Math.abs(x2);i++)
-				if(board[prevX+i][prevY-i] instanceof BlackPiece ||board[prevX+i][prevY-i] instanceof WhitePiece){
-					System.out.println("c");
+				if(board[prevX+i][prevY-i] instanceof BlackPiece ||board[prevX+i][prevY-i] instanceof WhitePiece)
 					return false;
-				}
 		if(prevX<moveX&&prevY<moveY)
 			for(int i=1;i<Math.abs(x2);i++)
-				if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY+i] instanceof WhitePiece){
-					System.out.println("d");
+				if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY+i] instanceof WhitePiece)
 					return false;
-				}
 
 		return true;
 	}

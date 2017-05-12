@@ -1,12 +1,11 @@
 import javax.swing.ImageIcon;
 
-public class BlackRook extends BlackPiece {
+public class WhiteRook extends WhitePiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-
-	private ImageIcon bRook= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/rook black.png");
-	public BlackRook(Chesspiece [][] a){
+	private ImageIcon wRook= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/rook white.png");
+	public WhiteRook(Chesspiece [][] a){
 		super(a);
 	}
 	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
@@ -18,14 +17,14 @@ public class BlackRook extends BlackPiece {
 			if (prevX-moveX>0){
 				for (int i=prevX-1;i>moveX;i--)
 				{
-					if (board[i][moveY] instanceof BlackPiece || board[i][moveY] instanceof WhitePiece)
+					if (board[i][moveY] instanceof BlackPiece || board[i][moveY] instanceof BlankPiece)
 						return false;
 				}
 			}
 			else if (prevX-moveX<0){
 				for (int i=prevX+1;i<moveX;i++)
 				{
-					if (board[i][moveY] instanceof BlackPiece || board[i][moveY] instanceof WhitePiece)
+					if (board[i][moveY] instanceof BlackPiece || board[i][moveY] instanceof BlankPiece)
 						return false;
 				}
 			}
@@ -34,14 +33,14 @@ public class BlackRook extends BlackPiece {
 			if (prevY-moveY>0){
 				for (int i=prevY-1;i>moveY;i--)
 				{
-					if (board[moveX][i] instanceof BlackPiece || board[moveX][i] instanceof WhitePiece)
+					if (board[moveX][i] instanceof BlackPiece || board[moveX][i] instanceof BlankPiece)
 						return false;
 				}
 			}
 			else if (prevY-moveY<0){
 				for (int i=prevY+1;i<moveY;i++)
 				{
-					if (board[moveX][i] instanceof BlackPiece || board[moveX][i] instanceof WhitePiece)
+					if (board[moveX][i] instanceof BlackPiece || board[moveX][i] instanceof BlankPiece)
 						return false;
 				}
 			}
@@ -49,10 +48,10 @@ public class BlackRook extends BlackPiece {
 		return true;
 	}
 	public boolean isWhite(){
-		return false;
+		return true;
 	}
 	public ImageIcon print(){
-		return bRook;
+		return wRook;
 	}
 	@Override
 	public void moved() {

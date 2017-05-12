@@ -16,7 +16,7 @@ public class WhiteBishop extends WhitePiece{
 			return false;
 		}
 		if(prevX>moveX&&prevY>moveY)
-			for(int i=1;i<Math.abs(x2);i++)
+			for(int i=1;i<Math.abs(x2);i--)
 				if(board[prevX-i][prevY-i] instanceof BlackPiece ||board[prevX-i][prevY-i] instanceof WhitePiece){
 					System.out.println("a");
 					return false;
