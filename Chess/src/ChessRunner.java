@@ -106,7 +106,7 @@ public class ChessRunner extends JPanel implements MouseListener{
 		mouseY=e.getY();
 		int row=mouseX/50;
 		int col=mouseY/50;
-		System.out.println(mouseX+"  "+mouseY);
+		//System.out.println(mouseX+"  "+mouseY);
 		//get the chesspiece		
 		changing= board [row][col];
 
@@ -115,6 +115,7 @@ public class ChessRunner extends JPanel implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		if((whiteTurn&&changing instanceof WhitePiece)||(!whiteTurn&&!(changing instanceof WhitePiece))){//whose turn
 			if(changing.validMove(e.getX()/50, e.getY()/50, mouseX/50, mouseY/50)){ //is it valid
+				System.out.println(e.getX()/50 + " " +  e.getY()/50 + " " + mouseX/50 + " " + mouseY/50);
 						if(changing instanceof WhitePiece && !(board[e.getX()/50][e.getY()/50] instanceof WhitePiece)
 									|| !(changing instanceof WhitePiece) && ((board[e.getX()/50][e.getY()/50] instanceof WhitePiece) ||(board[e.getX()/50][e.getY()/50] instanceof BlankPiece))){
 				paint(getGraphics(), mouseX, mouseY);
@@ -125,7 +126,7 @@ public class ChessRunner extends JPanel implements MouseListener{
 				int row=mouseX/50;
 				int col=mouseY/50;
 				changing.print().paintIcon(this, getGraphics(), 50*row, 50*col);;
-				System.out.println(mouseX+"  "+mouseY);
+				//System.out.println(mouseX+"  "+mouseY);
 				board[row][col]=changing;
 				if(changing instanceof WhitePawn)
 					changing.moved();

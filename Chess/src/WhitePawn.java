@@ -5,7 +5,7 @@ public class WhitePawn extends WhitePiece {
 	private int y;
 	private boolean isWhite; 
 	public boolean hasMoved=false;
-	private ImageIcon wPawn= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/images.png");
+	private ImageIcon wPawn= new ImageIcon("./data/images.png");
 	public WhitePawn(Chesspiece [][] a){
 		super(a);
 		}

@@ -5,7 +5,7 @@ public class BlackRook extends BlackPiece {
 	private int y;
 	private boolean isWhite; 
 
-	private ImageIcon bRook= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/rook black.png");
+	private ImageIcon bRook= new ImageIcon("./data/rook black.png");
 	public BlackRook(Chesspiece [][] a){
 		super(a);
 	}

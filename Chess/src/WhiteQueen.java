@@ -5,7 +5,7 @@ public class WhiteQueen extends WhitePiece {
 	private int y;
 	private boolean isWhite;
 	
-	private ImageIcon wQueen= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/queen white.png");
+	private ImageIcon wQueen= new ImageIcon("./data/queen white.png");
 	public WhiteQueen(Chesspiece [][] a){
 		super(a);
 		}

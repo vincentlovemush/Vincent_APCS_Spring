@@ -4,7 +4,7 @@ public class BlackQueen extends BlackPiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon bQueen= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/queen black.png");
+	private ImageIcon bQueen= new ImageIcon("./data/queen black.png");
 	public BlackQueen(Chesspiece [][] a){
 		super (a);
 		}

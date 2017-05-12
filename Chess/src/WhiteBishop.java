@@ -4,7 +4,7 @@ public class WhiteBishop extends WhitePiece{
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon wBishop= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/bishop white.png");
+	private ImageIcon wBishop= new ImageIcon("./data/bishop white.png");
 	public WhiteBishop(Chesspiece [][] a){
 		super(a);
 	}

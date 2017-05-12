@@ -2,7 +2,7 @@ import javax.swing.ImageIcon;
 
 public class WhiteKnight extends WhitePiece {
 	private boolean isWhite; 
-	private ImageIcon wKnight= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/knight white.jpg");
+	private ImageIcon wKnight= new ImageIcon("./data/knight white.jpg");
 	public WhiteKnight(Chesspiece [][] a){
 		super(a);
 		}

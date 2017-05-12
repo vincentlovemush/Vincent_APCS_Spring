@@ -4,7 +4,7 @@ public class WhiteRook extends WhitePiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon wRook= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/rook white.png");
+	private ImageIcon wRook= new ImageIcon("./data/rook white.png");
 	public WhiteRook(Chesspiece [][] a){
 		super(a);
 	}

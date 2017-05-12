@@ -4,12 +4,22 @@ public class BlackKing extends BlackPiece {
 	private int x;
 	private int y;
 	private boolean isWhite; 
-	private ImageIcon bKing= new ImageIcon("C:/Users/APCS2/Desktop/Vincent_APCS_Spring/Chess/blackking.jpg");
+	private ImageIcon bKing= new ImageIcon("./data/blackking.jpg");
 	public BlackKing(Chesspiece[][] a){
 		super(a);
 		}
 	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {
-	
+		int x2=Math.abs(moveX-prevX);
+		int y2=Math.abs(moveY-prevY);
+		/* things to implement
+		 * boolean hasMoved checks for castling
+		 * cannot move into check 
+		 * rook cant move for castling
+		 */
+		//king can only move 1 square, not accounting for castling
+		if (x2 > 1 || y2 > 1){
+			return false;
+		}
 		return true;
 	}
 	public boolean isWhite(){
