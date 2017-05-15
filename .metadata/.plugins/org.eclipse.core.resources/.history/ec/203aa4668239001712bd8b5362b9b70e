@@ -46,7 +46,7 @@ public class BlackQueen extends BlackPiece {
 		}else if(x2 == y2){
 			//moving top left
 			if(prevX>moveX&&prevY>moveY){
-				for(int i=1;i<x2;i++){
+				for(int i=1;i<Math.abs(x2);i++){
 					if(board[prevX-i][prevY-i] instanceof BlackPiece ||board[prevX-i][prevY-i] instanceof WhitePiece){
 						System.out.println("a");
 						return false;
@@ -55,7 +55,7 @@ public class BlackQueen extends BlackPiece {
 			}
 			//moving down left
 			if(prevX>moveX&&prevY<moveY){
-				for(int i=1;i<x2;i++){
+				for(int i=1;i<Math.abs(x2);i++){
 					if(board[prevX-i][prevY+i] instanceof BlackPiece ||board[prevX-i][prevY+i] instanceof WhitePiece){
 						System.out.println("b");
 						return false;
@@ -64,7 +64,7 @@ public class BlackQueen extends BlackPiece {
 			}
 			//moving top right
 			if(prevX<moveX&&prevY>moveY){
-				for(int i=1;i<x2;i++){
+				for(int i=1;i<Math.abs(x2);i++){
 					if(board[prevX+i][prevY-i] instanceof BlackPiece ||board[prevX+i][prevY-i] instanceof WhitePiece){
 						System.out.println("c");
 						return false;
@@ -73,14 +73,14 @@ public class BlackQueen extends BlackPiece {
 			}
 			//moving down right
 			if(prevX<moveX&&prevY<moveY){
-				for(int i=1;i<x2;i++){
+				for(int i=1;i<Math.abs(x2);i++){
 					if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY+i] instanceof WhitePiece){
 						System.out.println("d");
 						return false;
 					}
 				}
 			}
-		}else if (x2 != y2){
+		}else if (x2 + y2 >= 3){
 			return false;
 		}
 		return true;
