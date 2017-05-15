@@ -14,7 +14,7 @@ public class WhitePawn extends WhitePiece {
 		System.out.println(x2 +" "+ (prevY-moveY));
 		if(prevY-moveY==1&& x2==0&&!(board[moveX][moveY] instanceof BlackPiece))
 			return true;
-		if(x2==0 && prevY-moveY==2&&!hasMoved &&!(board[moveX][moveY] instanceof BlackPiece)&&!(board[moveX][moveY-1] instanceof BlackPiece))
+		if(x2==0 && prevY-moveY==2&&!hasMoved &&!(board[moveX][moveY] instanceof BlackPiece))
 			return true;
 		if (x2==1 && prevY-moveY==1 && (board[moveX][moveY] instanceof BlackPiece)){
 			System.out.println(x2+" "+ (prevY-moveY)+" "+ board[moveX][moveY].toString());
