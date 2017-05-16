@@ -75,7 +75,7 @@ public class WhiteQueen extends WhitePiece {
 			//moving down right
 			if(prevX<moveX&&prevY<moveY){
 				for(int i=1;i<x2;i++){
-					if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY+i] instanceof WhitePiece){
+					if(board[prevX+i][prevY+i] instanceof BlackPiece ||board[prevX+i][prevY+i] instanceof WhitePiece){
 						System.out.println("d");
 						return false;
 					}

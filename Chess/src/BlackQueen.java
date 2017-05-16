@@ -9,8 +9,10 @@ public class BlackQueen extends BlackPiece {
 		super (a);
 		}
 	public boolean validMove(int moveX, int moveY, int prevX, int prevY) {	
+		
 		int x2 = Math.abs(moveX-prevX);
 		int y2 = Math.abs(moveY-prevY);
+		System.out.println(moveX + " " + moveY + " " + prevX + " " + prevY + " " + x2 + " " + y2);
 		//moving horizontally.
 		if(y2==0){
 			if (prevX-moveX>0){
@@ -74,7 +76,7 @@ public class BlackQueen extends BlackPiece {
 			//moving down right
 			if(prevX<moveX&&prevY<moveY){
 				for(int i=1;i<x2;i++){
-					if(board[moveX+i][moveY+i] instanceof BlackPiece ||board[moveX+i][moveY+i] instanceof WhitePiece){
+					if(board[prevX+i][prevY+i] instanceof BlackPiece ||board[prevX+i][prevY+i] instanceof WhitePiece){
 						System.out.println("d");
 						return false;
 					}
